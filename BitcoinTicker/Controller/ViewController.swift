@@ -32,7 +32,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         currencyPicker.delegate = self
         currencyPicker.dataSource = self
-        
+        //pick default currency
+        currencyPicker.selectRow(16, inComponent: 0, animated: true)
        
     }
 
@@ -53,6 +54,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        print(component)
         finalURL = baseURL + currencyArray[row]
         print(finalURL)
         getBitcoinData(url: finalURL, currentRow: row)
